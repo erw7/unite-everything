@@ -71,7 +71,7 @@ let s:source_async =
 
 function! unite#sources#everything#define() "{{{
   let _ = []
-  if unite#util#is_windows() && s:available_es
+  if (unite#util#is_windows() || has('win32unix')) && s:available_es
     call add(_, s:source)
     if unite#util#has_vimproc()
       call add(_, s:source_async)
